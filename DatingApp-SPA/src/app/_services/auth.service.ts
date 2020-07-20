@@ -3,22 +3,21 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   baseUrl = 'https://localhost:44352/api/auth/';
 
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-login(model: any){
-  return this.http.post(this.baseUrl + 'login', model).pipe(
-    map((response: any) => {
-      const user = response;
-      if (user){
-        localStorage.setItem('token', user.token);
-      }
-    })
-  );
-}
+  login(model: any) {
+    return this.http.post(this.baseUrl + 'login', model).pipe(
+      map((response: any) => {
+        const user = response;
+        if (user) {
+          localStorage.setItem('token', user.token);
+        }
+      })
+    );
+  }
 }
