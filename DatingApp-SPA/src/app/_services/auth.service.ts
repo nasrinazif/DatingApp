@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { NgModel } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -19,5 +20,9 @@ export class AuthService {
         }
       })
     );
+  }
+
+  register(model: any){
+    return this.http.post(this.baseUrl + 'register', model);
   }
 }
