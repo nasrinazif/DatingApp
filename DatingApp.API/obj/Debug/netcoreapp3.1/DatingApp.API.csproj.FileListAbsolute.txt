@@ -139,3 +139,7 @@ D:\Projects\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAna
 D:\Projects\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Projects\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Projects\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\Projects\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Projects\DatingApp\DatingApp.API\obj\Debug\netcoreapp3.1\DatingApp.API.csproj.CoreCompileInputs.cache
+D:\Projects\DatingApp\DatingApp.API\obj\Debug\netcoreapp3.1\DatingApp.API.MvcApplicationPartsAssemblyInfo.cache
