@@ -7,15 +7,17 @@ import { FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
-import { appRoutes } from './routes';
+
 
 @NgModule({
    declarations: [
@@ -24,6 +26,7 @@ import { appRoutes } from './routes';
       HomeComponent,
       RegisterComponent,
       MemberListComponent,
+      MemberCardComponent,
       ListsComponent,
       MessagesComponent
    ],
