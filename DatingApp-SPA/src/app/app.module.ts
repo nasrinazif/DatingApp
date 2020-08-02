@@ -44,11 +44,11 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
          config: {
-           tokenGetter: tokenGetter,
-           allowedDomains: ['https://localhost:44352', 'http://localhost:44352'],
-           disallowedRoutes: ['https://localhost:44352/api/auth'],
-         },
-       })
+            tokenGetter: tokenGetter,
+            allowedDomains: ['localhost:44352'],
+            disallowedRoutes: []
+         }
+      })
    ],
    providers: [
       AuthService,
