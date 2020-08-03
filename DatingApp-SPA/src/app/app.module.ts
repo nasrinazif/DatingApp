@@ -46,7 +46,7 @@ export function tokenGetter() {
          config: {
             tokenGetter,
             allowedDomains: ['localhost:44352'],
-            disallowedRoutes: []
+            disallowedRoutes: ['localhost:44352/api/auth']
          }
       })
    ],
