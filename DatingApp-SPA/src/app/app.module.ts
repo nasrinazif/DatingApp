@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { MemberListResolver } from './_resolvers/member-list.resolver';
+=======
+>>>>>>> 329b2a282ba160d1f821c1bed4b7c5929b094568
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { AuthGuard } from './_guards/auth.guard';
 import { AlertifyService } from './_services/alertify.service';
@@ -62,8 +65,12 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard,
+<<<<<<< HEAD
       MemberDetailResolver,
       MemberListResolver
+=======
+      MemberDetailResolver
+>>>>>>> 329b2a282ba160d1f821c1bed4b7c5929b094568
    ],
    bootstrap: [
       AppComponent
