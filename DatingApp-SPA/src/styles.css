@@ -5,6 +5,7 @@
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 
+.ngx-gallery { display: inline-block; margin-bottom: 20px; }
 
 .tab-panel {
     border: 1px solid #ddd;
