@@ -65,12 +65,8 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard,
-<<<<<<< HEAD
       MemberDetailResolver,
       MemberListResolver
-=======
-      MemberDetailResolver
->>>>>>> 329b2a282ba160d1f821c1bed4b7c5929b094568
    ],
    bootstrap: [
       AppComponent
