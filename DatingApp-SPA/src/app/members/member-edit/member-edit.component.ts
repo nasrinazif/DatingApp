@@ -23,4 +23,7 @@ export class MemberEditComponent implements OnInit {
       this.user = data['user'];
     });
   }
+
+  updateUser(){
+  }
 }
