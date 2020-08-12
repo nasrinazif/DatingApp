@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Photo } from './../../_models/photo';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-photo-edit',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo-edit.component.css']
 })
 export class PhotoEditComponent implements OnInit {
+  @Input() photos: Photo[];
 
   constructor() { }
 
