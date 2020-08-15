@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AlertifyService } from './../../_services/alertify.service';
 import { UserService } from 'src/app/_services/user.service';
 import { AuthService } from './../../_services/auth.service';
@@ -9,7 +10,7 @@ import { FileUploader } from 'ng2-file-upload';
 @Component({
   selector: 'app-photo-edit',
   templateUrl: './photo-edit.component.html',
-  styleUrls: ['./photo-edit.component.css']
+  styleUrls: ['./photo-edit.component.css'],
 })
 export class PhotoEditComponent implements OnInit {
   @Input() photos: Photo[];
@@ -20,8 +21,12 @@ export class PhotoEditComponent implements OnInit {
   baseUrl = environment.apiUrl;
   currentMain: Photo;
 
-  constructor(private authService: AuthService, private userService: UserService, private alertify: AlertifyService) {
-   }
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private alertify: AlertifyService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.initializeUploader();
@@ -31,18 +36,24 @@ export class PhotoEditComponent implements OnInit {
     this.hasBaseDropZoneOver = e;
   }
 
-  initializeUploader(){
+  initializeUploader() {
     this.uploader = new FileUploader({
-      url: this.baseUrl + 'users/' + this.authService.decodedToken.nameid + '/photos',
+      url:
+        this.baseUrl +
+        'users/' +
+        this.authService.decodedToken.nameid +
+        '/photos',
       authToken: 'Bearer ' + localStorage.getItem('token'),
       isHTML5: true,
       allowedFileType: ['image'],
       removeAfterUpload: true,
       autoUpload: false,
-      maxFileSize: 10 * 1024 * 1024
+      maxFileSize: 10 * 1024 * 1024,
     });
 
-    this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false; };
+    this.uploader.onAfterAddingFile = (file) => {
+      file.withCredentials = false;
+    };
 
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       if (response) {
@@ -52,19 +63,24 @@ export class PhotoEditComponent implements OnInit {
           url: res.url,
           dateAdded: res.dateAdded,
           description: res.description,
-          isMain: res.isMain
+          isMain: res.isMain,
         };
         this.photos.push(photo);
       }
     };
   }
 
-  setMainPhoto(photo: Photo){
-    this.userService.setMainPhoto(this.authService.decodedToken.nameid, photo.id).subscribe(
-      next => {
-        this.alertify.success('Photo set to main!');
-        this.getMemberPhotoChange.emit(photo.url); },
-      error => {this.alertify.error(error); }
-    );
+  setMainPhoto(photo: Photo) {
+    this.userService
+      .setMainPhoto(this.authService.decodedToken.nameid, photo.id)
+      .subscribe(
+        (next) => {
+          this.getMemberPhotoChange.emit(photo.url);
+          this.alertify.success('Photo set to main!');
+        },
+        (error) => {
+          this.alertify.error(error);
+        }
+      );
   }
 }
