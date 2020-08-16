@@ -21,6 +21,8 @@ import { appRoutes } from './routes';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
+import { TimeagoModule } from 'ngx-timeago';
+
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -62,6 +64,7 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
       FileUploadModule,
+      TimeagoModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter,
