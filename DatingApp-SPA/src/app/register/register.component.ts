@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.bsDatepickerConfig = {
-      containerClass: 'theme-red'
+      containerClass: 'theme-red',
     };
     this.createRegisterForm();
   }
@@ -66,28 +66,28 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.registerForm.value);
-    if (this.registerForm.valid){
+    if (this.registerForm.valid) {
       this.user = Object.assign({}, this.registerForm.value);
+
+      this.authService.register(this.user).subscribe(
+        (next) => {
+          this.alertify.success('Registered successfully!');
+        },
+        (error) => {
+          this.alertify.error(error);
+        },
+        () => {
+          this.authService.login(this.user).subscribe(
+            (next) => {
+              this.router.navigate(['/members']);
+            },
+            (error) => {
+              this.alertify.error(error);
+            }
+          );
+        }
+      );
     }
-    this.authService.register(this.user).subscribe(
-      (next) => {
-        this.alertify.success('Registered successfully!');
-      },
-      (error) => {
-        this.alertify.error(error);
-      },
-      () => {
-        this.authService.login(this.user).subscribe(
-          (next) => {
-            this.router.navigate(['/members']);
-          },
-          (error) => {
-            this.alertify.error(error);
-          }
-        );
-      }
-    );
   }
 
   cancel() {
