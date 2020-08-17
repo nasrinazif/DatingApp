@@ -17,7 +17,7 @@ namespace DatingApp.API.Helper
         {
             TotalCount = count;
             CurrentPage = pageNumber;
-            PageSize = PageSize;
+            PageSize = pageSize;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
             this.AddRange(items);
         }
