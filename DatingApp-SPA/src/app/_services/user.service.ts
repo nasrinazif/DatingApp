@@ -17,11 +17,10 @@ export class UserService {
   getUsers(page?, itemsPerPage?): Observable<PaginatedResult<User[]>> {
     const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
 
-    const params = new HttpParams();
+    const params = new HttpParams().set('pageNumber', page).set('pageSize', itemsPerPage);
 
     if (page != null && itemsPerPage != null){
-      params.append('pageNumber', page);
-      params.append('pageSize', itemsPerPage);
+      params.set('pageNumber', page).set('pageSize', itemsPerPage);
     }
 
     return this.http.get<User[]>(this.baseUrl + 'users', {observe: 'response', params}).pipe(
