@@ -9,7 +9,7 @@ import { User } from '../_models/user';
 @Injectable()
 export class MemberListResolver implements Resolve<User[]> {
     pageNumber = 1;
-    pageSize = 5;
+    pageSize = 6;
 
     constructor(private userService: UserService,
                 private route: Router,
