@@ -27,6 +27,13 @@ namespace DatingApp.API.Data
             _context.Remove(entity);
         }
 
+        public async Task<Like> GetLike(int userID, int recipientID)
+        {
+            var like = await _context.Likes.FirstOrDefaultAsync(u => u.LikerId == userID && u.LikeeId == recipientID);
+
+            return like;
+        }
+
         public async Task<Photo> GetMainPhotoForUser(int userId)
         {
             var photo = await _context.Photos.Where(u => u.UserId == userId).FirstOrDefaultAsync(p => p.IsMain);
